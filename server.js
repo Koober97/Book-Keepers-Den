@@ -9,7 +9,7 @@ var path = require("path")
 
 var session = require("express-session");
 // Requiring passport as we've configured it
-var passport = require("./config/passport");
+var passport = require("./passport.js");
 
 // Compress
 var compression = require('compression')
