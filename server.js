@@ -6,10 +6,10 @@
 // =============================================================
 var express = require("express");
 var path = require("path")
-
+var db = require('./db/connection');
 var session = require("express-session");
 // Requiring passport as we've configured it
-var passport = require("./config/passport");
+var passport = require("./passport.js");
 
 // Compress
 var compression = require('compression')
@@ -24,7 +24,7 @@ var PORT = process.env.PORT || 8090;
 app.use(compression())
 
 // Requiring our models for syncing
-var db = require("./models");
+// var db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -49,17 +49,15 @@ app.use(passport.session());
 
 // Routes
 // =============================================================
-require("./routes/html-routes.js")(app);
-require("./routes/user-api-routes.js")(app);
-require("./routes/book-api-routes.js")(app);
-require("./routes/shoppingcart-api-routes.js")(app);
-require("./routes/purchase-api-routes.js")(app);
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 /* { force: true } */
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+db.connect(err => {
+  if (err) throw err;
+  console.log('Database connected.');
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
   });
 });
