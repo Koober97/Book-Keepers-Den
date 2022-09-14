@@ -1,0 +1,94 @@
+:root {
+    --primary: #fcf5e5;
+    --secondary: #c04000;
+}
+
+body {
+    background-color: var(--primary);
+}
+
+header {
+    margin: 0;
+ 
+}
+
+header a {
+    color: black;
+}
+
+.column {
+    float: left;
+  }
+  
+  .left, .right {
+    width: 25%;
+  }
+  
+  .middle {
+    width: 50%;
+    text-align: center;
+  }
+
+  .left {
+    padding-left: 7px;
+  }
+
+  .right {
+    text-align: right;
+    padding-right: 7px;
+}
+
+
+
+.hero-section {
+    text-align: center;
+}
+
+
+.library-card {
+    text-align: center;
+}
+
+.wishlist-card {
+    text-align: center;
+}
+
+.search-card p {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.search-input .btn {
+    border-radius: 10px;
+    margin-left: 10px;
+    background-color: var(--secondary);
+}
+
+#submit-btn:hover {
+    background-color: #dc8052;
+
+}
+
+.search-input {
+    justify-content: center;
+    display: flex;
+}
+
+#search {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 .5px 0 0 #c04000;
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+footer {
+    text-align: right;
+    padding-right: 10px;
+    background-color: var(--secondary);
+    color: var(--primary);
+}
