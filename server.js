@@ -8,6 +8,7 @@ var express = require("express");
 var path = require("path")
 var db = require('./db/connection');
 var session = require("express-session");
+var apiRoutes = require('./routes/apiRoutes');
 // Requiring passport as we've configured it
 var passport = require("./passport.js");
 
@@ -19,6 +20,12 @@ var compression = require('compression')
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8090;
+
+// express middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.use('/api', apiRoutes);
 
 // compress all responses
 app.use(compression())

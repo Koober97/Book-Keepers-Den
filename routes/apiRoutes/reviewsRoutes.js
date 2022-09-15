@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../../db/connection');
 const inputCheck = require('../../utils/inputCheck');
 
-router.post('/reviews', ({ body }, res) => {
+router.post('/', ({ body }, res) => {
     // data validation
     const errors = inputCheck(body, 'first_name', 'last_name', 'book_name', 'review');
     if (errors) {
@@ -26,3 +26,5 @@ router.post('/reviews', ({ body }, res) => {
             })
         });
 });
+
+module.exports = router;
